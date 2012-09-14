@@ -1,0 +1,10 @@
+name = clearcache
+description = Clear cache on content update
+package = PERFORMANCE AND SCALABILITY
+version = VERSION
+core = 7.x
+files[] = clearcache.module
+
+version = "7.x-1.0"
+project = "drupal"
+datestamp = "1347610589"
