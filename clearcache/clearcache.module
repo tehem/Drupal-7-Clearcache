@@ -32,7 +32,10 @@ function clearcache_clear($node)
 {
 	clearcache_for_home(); //clear the cache for the homepage
 	clearcache_for_node($node->nid); //clear the cache for the updated node
-	// clearcache_for_tax($node->field_taxonomy['und'][0]['tid']); //clear the cache for the updated node rubrique field
+	
+	//clear the cache for the updated node rubrique field
+	// please, replace the field_taxonomy with your own taxonomy field
+	// clearcache_for_tax($node->field_taxonomy['und'][0]['tid']); 
 }
 
 function clearcache_for_home()
