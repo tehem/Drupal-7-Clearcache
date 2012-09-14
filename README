@@ -6,7 +6,6 @@ For any question : timothee.moulin@gmail.com
 How to use :
 ==========================
 1. Install the module as usual
-2. If you want to enable cache clearing for related taxonomy term, goto line #36
-3. That's all Folks
+2. That's all Folks
 
-4. If you want to make an configuration interface, you're welcome to fork it.
+3. If you want to make an configuration interface, you're welcome to fork it.

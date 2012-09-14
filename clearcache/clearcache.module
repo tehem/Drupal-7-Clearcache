@@ -1,7 +1,6 @@
 <?php
 /**
  * Clear the cache of the updated node and the <front> page
- * Can also clear cache for the main page of the node -> taxonomy term
  * @author Timothée Moulin timothee.moulin@gmail.com
  * @version 1.0
  * @param I globally use the $node that is the current node given by Drupal
@@ -32,10 +31,6 @@ function clearcache_clear($node)
 {
 	clearcache_for_home(); //clear the cache for the homepage
 	clearcache_for_node($node->nid); //clear the cache for the updated node
-	
-	//clear the cache for the updated node rubrique field
-	// please, replace the field_taxonomy with your own taxonomy field
-	// clearcache_for_tax($node->field_taxonomy['und'][0]['tid']); 
 }
 
 function clearcache_for_home()
@@ -50,16 +45,6 @@ function clearcache_for_node($nid=NULL)
 	$nodeurl = url('node/'.$nid);
 	$cid = drupal_get_path_alias($nodeurl);
 	clearcache_for($cid);
-}
-
-function clearcache_for_tax($tid=NULL)
-{
-	if ($tid==NULL)
-		return false;
-	$termurl = url('taxonomy/'.$tid);
-	$cid = drupal_get_path_alias($termurl);
-	// clearcache_for('/'.$cid);
-	// dpm($cid);
 }
 
 function clearcache_for($cid=NULL)
