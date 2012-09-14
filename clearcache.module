@@ -2,23 +2,37 @@
 /**
  * Clear the cache of the updated node and the <front> page
  * Can also clear cache for the main page of the node -> taxonomy term
- **/
+ * @author Timothée Moulin timothee.moulin@gmail.com
+ * @version 1.0
+ * @param I globally use the $node that is the current node given by Drupal
+ */
 
+
+/**
+ * Implements hook_node_delete().
+ */
 function clearcache_node_delete($node)
 {
 	clearcache_clear($node);
 }
 
+/**
+ * Implements hook_node_submit().
+ * That's for all create new or update node.
+ */
 function clearcache_node_submit($node)
 {
 	clearcache_clear($node);
 }
 
+/**
+ * Define what to clear
+ */
 function clearcache_clear($node)
 {
 	clearcache_for_home(); //clear the cache for the homepage
 	clearcache_for_node($node->nid); //clear the cache for the updated node
-	clearcache_for_tax($node->field_taxonomy['und'][0]['tid']); //clear the cache for the updated node rubrique field
+	// clearcache_for_tax($node->field_taxonomy['und'][0]['tid']); //clear the cache for the updated node rubrique field
 }
 
 function clearcache_for_home()
